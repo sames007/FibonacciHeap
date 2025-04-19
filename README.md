@@ -49,18 +49,6 @@ public static void main(String[] args) {
 }
 ```
 
---- 
-
-## Project Structure
-
-src/
-└── main/
-    └── java/
-        └── edu/
-            └── farmingdale/
-                └── FibonacciHeap.java
-
-
 ---
 
 ## Requirements

@@ -1,38 +1,28 @@
-# Fibonacci Heap in Java
+# 📦 Fibonacci Heap
 
-A simple Java implementation of a **Fibonacci Heap**, a priority queue that’s great for:
-- Fast insertions
-- Fast removal of the minimum element
-- Fast decrease‑key operations
+A Java implementation of a **Fibonacci Heap**, a special priority‑queue data structure that supports:
 
-Useful for algorithms like Dijkstra’s shortest path.
+- 🔹 **O(1)** amortized insertion  
+- 🔹 **O(1)** amortized decrease‑key  
+- 🔹 **O(log n)** amortized removal of the minimum element  
 
----
+## 📋 What It Does
 
-## What’s in This Project?
+- **insert(key)** – Adds a new key to the heap.  
+- **removeMin()** – Removes and returns the smallest key, then restructures the heap.  
+- **decreaseKey(node, newKey)** – Lowers the key of an existing node.  
+- Internal operations: cut, cascadingCut, consolidate, and link to maintain heap properties.  
+- Uses a circular, doubly‑linked root list and tree linking by degree.  
 
-- **FibonacciHeap.java**  
-  - `insert(int key)` – add a new value  
-  - `removeMin()` – remove and return the smallest value  
-  - `decreaseKey(Node x, int newKey)` – lower the key of an existing node  
-  - Internal helpers (`consolidate`, `cut`, `link`, etc.) to keep operations fast  
+## 🚀 How to Run
 
-All code lives in the `edu.farmingdale` package and is fully commented.
+1. Make sure you have **Java 17+** installed.  
+2. Clone this repository and open it in your IDE or compile via command line.  
+3. In your `src` folder, place **FibonacciHeap.java**.  
+4. Compile and run the `main()` method in `FibonacciHeap.java`:
 
----
 
-## How It Works
-
-- Nodes are in a circular, doubly linked list.
-- Each node stores:
-  - `key` (its value or priority)  
-  - pointers to parent, one child, left/right siblings  
-  - a `mark` flag used during decrease‑key  
-- Removing the minimum “zips together” its children into the root list, then **consolidates** to merge trees of equal degree.
-
----
-
-## Example Usage
+## 📞 Example Usage
 
 ```java
 public static void main(String[] args) {
@@ -43,19 +33,14 @@ public static void main(String[] args) {
     heap.insert(15);
     heap.insert(6);
 
-    System.out.println("Min key: " + heap.getMin());       // 3
-    System.out.println("Removed min: " + heap.removeMin()); // 3
-    System.out.println("New min: " + heap.getMin());       // 6
+   // → Minimum key: 3
+   System.out.println("Minimum key: " + heap.getMin());
+
+   // → Removed min: 3
+   System.out.println("Removed min: " + heap.removeMin());
+
+   // → New minimum key: 6
+   System.out.println("New minimum key: " + heap.getMin());
+
 }
 ```
-
----
-
-## Requirements
-- Java 8 or higher
--No external libraries (pure Java)
-
-## Why Use a Fibonacci Heap?
-- They’re mostly academic, but they demonstrate:
-- Amortized analysis in data structures
--Key operations used in advanced graph algorithms
